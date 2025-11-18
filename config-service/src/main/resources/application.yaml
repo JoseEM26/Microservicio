@@ -1,0 +1,16 @@
+# src/main/resources/application.yml del config-service
+server:
+  port: 8081
+
+spring:
+  application:
+    name: config-service
+  
+  profiles:
+    active: native    # ← obligatorio para que use classpath:/config
+
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: config-data   # ← aquí busca los archivos como carro-service.yml, eureka-service.yml, etc.
